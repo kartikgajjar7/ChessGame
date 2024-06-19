@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            height: 100%;
+        }
+
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            grid-template-rows: repeat(8, minmax(0, 1fr));
+            width: 400px;
+            height: 400px;
+            transform: rotate(0deg);
+        }
+
+        .piece.white {
+            color: white;
+            filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+        }
+
+        .piece.black {
+            color: black;
+        }
+
+        .flipped {
+            transform: rotate(180deg);
+        }
+
+        .square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .square.light {
+            background-color: #f0d9b5;
+        }
+
+        .square.dark {
+            background-color: #b58863;
+        }
+
+        .piece {
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .piece.draggable {
+            cursor: grab;
+        }
+
+        .dragging {
+            opacity: 0.5;
+        }
+
+        /* Rotate pieces for black player */
+        .flipped .piece {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flex h-full flex-col bg-black items-center justify-center ">
+        <h1 class="text-4xl  Heading font-bold text-indigo-300 mb-2">Welcome!!!!!</h1>
+
+        <div class="flex  place-content-center flex-row w-full bg-black">
+            <button class="bg-blue-500 spectclick bg bhover:bg-blue-700 text-white font-bold py-2 ml-6 px-4 rounded">
+                Spect a Friend
+            </button>
+            <button class="bg-blue-500 findmatch bg hover:bg-blue-700 text-white font-bold ml-6  py-2 px-4 rounded">
+                Find a Match
+            </button>
+
+        </div>
+
+        <img class="w-28 h-28 searchgif hidden" src="https://media1.tenor.com/m/KvytKVihWC8AAAAC/dancing-chicken.gif" alt="">
+        <div class="relative  hidden flex max-w-md">
+            <div class="flex flex-row inputid">
+                <div class="relative inputid">
+                    <input type="text"
+                        class="peer grabid w-full rounded-l-md bg-gray-800 px-3 py-2.5 text-sm text-gray-200 outline-none placeholder-shown:border-gray-600 focus:border-gray-400 disabled:bg-gray-700 disabled:text-gray-500"
+                        placeholder="ROOM ID" />
+                    <label
+                        class="absolute left-0 top-0 mx-3 mt-2 overflow-visible truncate text-xs text-gray-400 transition-all peer-placeholder-shown:text-sm peer-focus:text-xs peer-focus:text-gray-300 peer-disabled:text-gray-500">
+
+                    </label>
+                </div>
+                <button
+                    class="rounded-r-md specb bg-gray-700 px-4 py-2 text-xs font-semibold uppercase text-gray-300 d">
+                    Spect
+                </button>
+
+            </div>
+        </div>
+        <h2 class="text-lg text-yellow-600 hidden id font-semibold">Room ID: <span class="text-gray-400">null</span>
+             
+        </h2>
+         <button class="bg-blue-500 hidden extbt findmatch bg hover:bg-blue-700 text-white font-bold ml-6  py-2 px-4 rounded">
+               Exit match
+            </button>
+    </div>
+
+
+    </div>
+    <div class="w-full flex  items-center justify-center    h-screen bg-zinc-900">
+        <div class=" w-96 hidden chessboard h-96 bg-white "></div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+        integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"
+        integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/chessgame.js"></script>
+</body>
+
+</html>

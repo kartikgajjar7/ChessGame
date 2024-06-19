@@ -1,0 +1,28 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --experimental-modules app.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kartikgajjar7/ChessGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kartikgajjar7/ChessGame/issues"
+  },
+  "homepage": "https://github.com/kartikgajjar7/ChessGame#readme",
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.3",
+    "socket.io": "^4.7.5"
+  }
+}
